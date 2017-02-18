@@ -1,0 +1,114 @@
+<!-- Si colocamos la línea de abajo en el index.html
+     ya no haría falta ponerla en cada comnponente
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+<dom-module id="my-first-element">
+   <template>
+      <style>
+      :host {
+         display: block;
+         text-align: left;
+         background-color: #BC1E30;
+         min-width: 300px;
+         color: #fff;
+         margin: 15px;
+      }
+      </style>
+      <p>Miembros de la familia<br>
+      <p>Primera forma:<br>
+      <template is="dom-repeat" items="{{family}}">
+        <button on-tap  = "_print1">selected</button>#{{index}} - {{item.name}} {{item.lastName}} <br>
+      </template>
+
+      <hr>
+
+      <p>Segunda forma:<br>
+      <!-- Aquí tenemos que modificar un poco la función _print() como está en la teoría -->
+      <!-- si queremos poner también el button -->
+      <template is="dom-repeat" items="{{family}}" as="familymember" index-as="count" filter="_isSanchez">
+        <button on-tap  = "_print">selected</button> #{{count}} - {{familymember.name}} {{familymember.lastName}} <br>
+        
+        <template is="dom-if" if="{{familymember.isMe}}">
+            <h2>Being you is cool!</h2>
+        </template>
+
+        Hobbies: <br>
+        <template is="dom-repeat" items="{{familymember.hobbies}}" as="hobbie" index-as="hobbie_number">
+         {{hobbie_number}}: {{hobbie}}, <br>
+        </template>
+        <br>
+
+      </template>
+
+   </template>
+   <script>
+   Polymer({
+      is: 'my-first-element',
+
+      properties: {
+         family: {
+            type: Array,
+            value: [{
+               name: "Víctor",
+               lastName: "Sánchez",
+               type: "me",
+               hobbies: ["videogames", "tvshows"],
+               isMe: true
+            }, {
+               name: "Carlos",
+               lastName: "Sánchez",
+               type: "brother",
+               hobbies: ["tvshows", "music"],
+               isMe: false
+            }, {
+               name: "Diego",
+               lastName: "Sánchez",
+               type: "parent",
+               hobbies: ["gadgets", "music"],
+               isMe: false
+            }, {
+               name: "María Lucía",
+               lastName: "Belmar",
+               type: "parent",
+               hobbies: ["music", "reading"],
+               isMe: false
+            }, {
+               name: "Antonia",
+               lastName: "Bonet",
+               type: "grandparent",
+               hobbies: ["pictures", "cooking"],
+               isMe: false
+            }, {
+               name: "Mar",
+               lastName: "Gómez",
+               type: "godmother",
+               hobbies: ["animals", "concerts"],
+               isMe: false
+            }]
+         }
+      },
+
+      _print1: function(e) {
+          var model = e.model;
+          console.log(model);
+          console.log(model.item);
+          console.log(model.item.name + " " + model.item.lastName);
+      },
+
+      _print: function(e) {
+          var model = e.model;
+          console.log(model);
+          console.log(model.familymember);
+          console.log(model.familymember.name + " " + model.familymember.lastName);
+      },
+
+      _isSanchez: function(item){
+         return item.lastName == "Sánchez";
+      },
+      _isParent: function(item){
+         return item.type == "parent";
+      }  
+
+   })
+   </script>
+</dom-module>

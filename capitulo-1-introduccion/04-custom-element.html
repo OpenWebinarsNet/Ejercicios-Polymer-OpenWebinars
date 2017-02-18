@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom element</title>
+</head>
+<body>
+<script>
+	// creamos el prototipo del elemento
+	// y le definimos el método createdCallback
+	// para que muestre un mensaje
+	var helloPrototype = Object.create(HTMLElement.prototype);
+	helloPrototype.createdCallback = function() { 
+    	this.innerHTML = "<h1>HelloWorld</h1>";
+	};
+
+	//Le añadiremos también una función:
+	helloPrototype.hello = function(){
+	    console.log("hello");    
+	};
+	//Registramos el elemento para que el navegador reconozca el nuevo tag <hello-element>
+	document.registerElement('hello-element', {
+	    prototype: helloPrototype,
+	});
+
+	// Las siguientes líneas las podríamos introducir mediante la consola
+	var helloInstance = document.createElement('hello-element');
+	document.body.appendChild(helloInstance);
+	helloInstance.hello();
+
+</script>
+	
+</body>
+</html>

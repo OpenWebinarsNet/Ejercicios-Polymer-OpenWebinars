@@ -1,0 +1,48 @@
+<!-- Si colocamos la línea de abajo en el index.html
+     ya no haría falta ponerla en cada comnponente
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+
+<dom-module id="my-first-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+        text-align: center;
+        background-color: #BC1E30;
+        min-width: 300px;
+        color: #fff;
+        margin: 15px;
+      }
+    </style>
+    <h2>Hello {{name}}</h2>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-first-element',
+
+      properties: {
+          name:{
+              type: String,
+              value: "element",
+              reflectToAttribute: false,
+              readOnly: false,
+              notify: false,
+              observer: "_observeName"
+          }
+      },
+
+      _observeName: function(e){
+          // e contiene el valor del atributo cambiado: element
+          console.log("_observeName");
+          console.log(e);
+      }
+    });
+
+  </script>
+</dom-module>
+
+<!-- Comentarios
+Cuando cambie la propiedad name se ejecutará _observeName()
+-->

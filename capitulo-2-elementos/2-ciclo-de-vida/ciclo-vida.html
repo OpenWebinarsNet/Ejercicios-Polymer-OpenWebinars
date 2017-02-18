@@ -1,0 +1,64 @@
+<!-- Si colocamos la línea de abajo en el index.html
+     ya no haría falta ponerla en cada comnponente
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+<dom-module id="ciclo-vida">
+   <template>
+      <style>
+      :host {
+         display: block;
+         text-align: center;
+         background-color: #BC1E30;
+         min-width: 300px;
+         color: #fff;
+         margin: 15px;
+      }
+      </style>
+      <h2>Hello {{name}}</h2>
+   </template>
+   <script>
+   Polymer({
+      is: 'ciclo-vida',
+
+      properties: {
+         name: {
+            type: String,
+            value: "element",
+            reflectToAttribute: true,
+            readOnly: false,
+            notify: false,
+            observer: "_observeName"
+         }
+      },
+
+      _observeName: function(valor) {
+         console.log("_observeName");
+         console.log(valor);
+      },
+
+      // Ciclo de vida
+      created: function() {
+         console.log("created");
+      },
+
+      ready: function() {
+         console.log("ready");
+      },
+
+      attached: function() {
+         console.log("attached");
+      },
+
+      // El detached no lo imprime
+      detached: function() {
+         console.log("detached");
+      },
+
+      attributeChanged: function(name, type) {
+         console.log("attributeChanged");
+         console.log("Attribute value: ", this.name);
+         console.log("Attribute value: ", this.getAttribute(name));
+      }
+   });
+   </script>
+</dom-module>

@@ -1,0 +1,64 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+
+<dom-module id="my-first-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+        text-align: center;
+        background-color: var(--my-bg-color, #BC1E30);
+        min-width: 300px;
+        color: #fff;
+        margin: 15px;
+      }
+
+      :host ::content img{
+        max-width: 100px;
+        border-radius: 50px;
+      }
+
+      #byeP {
+        @apply(--my-byeP-rules);
+      }
+    </style>
+    <h2>Hello {{name}}</h2> <!-- LocalDOM -->
+
+    <content id="myContent"> <!-- LightDOM -->
+    </content>
+
+    <p id="byeP">Bye {{name}}</p> <!-- LocalDOM -->
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-first-element',
+
+      properties: {
+          name:{
+              type: String,
+              value: "element",
+              reflectToAttribute: true,
+              readOnly: false,
+              notify: false,
+              observer: "_observeName"
+          }
+      },
+
+      _observeName: function(e){
+          console.log("_observeName");
+          console.log(e);
+      },
+
+      listeners: {
+        click: '_changeTheme'
+      },
+
+      _changeTheme: function(){
+        this.customStyle['--my-bg-color']= 'black';
+        this.updateStyles();
+      }
+
+    });
+
+  </script>
+</dom-module>

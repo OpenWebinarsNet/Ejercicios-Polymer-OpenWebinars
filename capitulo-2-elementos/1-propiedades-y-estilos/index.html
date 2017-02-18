@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Examples</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="my-first-component.html">
+
+    <style>
+      body {
+        margin: 0px;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <paper-button raised toggles>PAPER BUTTON</paper-button>
+    <my-first-element name="Victor"></my-first-element>  
+    <my-first-element name="Carlos"></my-first-element>  
+    <my-first-element></my-first-element>
+  </body>
+</html>
+
+<!-- Podemos también crear elementos con JS desde la consola
+
+var el =  document.createElement('my-first-element')
+// Creamos el elemento en el DOM (aparece el botón con name “element”)
+document.querySelector(‘body’).appendChild(el)
+// Cambia el nombre del botón a “Peter”
+el.name = "Peter"
+
+-->

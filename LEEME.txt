@@ -1,0 +1,21 @@
+Valencia, 18 de Febrero de 2017
+
+Ejercicios del CURSO DE POLYMER
+
+   "Crea Web Apps con el Framework Polymer de Google usando Web Components y Material Design"
+
+En:
+	https://openwebinars.net/
+
+Profesor:
+	Victor Sánchez Belmar
+
+===================================================================================
+
+Un excelente curso que recomiendo para un rápido aprendizaje de las 
+bases de Polymer.
+
+No solo las bases, el curso entra en materia tanto teórica como práctica.
+
+Vicente Soriano
+Alumno satisfecho con el curso

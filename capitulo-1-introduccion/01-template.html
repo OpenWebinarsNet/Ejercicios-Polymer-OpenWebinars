@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Template</title>
+</head>
+<body>
+
+<template id="my-template">
+    <h2>Título del template</h2>
+    <p>Mi texto de prueba</p>
+</template>
+
+<div id="salida"></div>
+
+<script>
+	var myTemplate = document.getElementById('my-template');
+	var salida = document.getElementById('salida'),
+
+	clonedTemplate = myTemplate.content.cloneNode(true);
+    salida.appendChild(clonedTemplate);
+</script>
+
+	
+</body>
+</html>

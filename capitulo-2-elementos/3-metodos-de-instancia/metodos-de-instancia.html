@@ -1,0 +1,44 @@
+<!-- Si colocamos la línea de abajo en el index.html
+     ya no haría falta ponerla en cada comnponente
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+<dom-module id="metodos-de-instancia">
+   <template>
+      <style>
+      :host {
+         display: block;
+         text-align: center;
+         background-color: #BC1E30;
+         min-width: 300px;
+         color: #fff;
+         margin: 15px;
+      }
+      </style>
+      <h2>Hello {{name}}</h2>
+   </template>
+   <script>
+   Polymer({
+      is: 'metodos-de-instancia',
+
+      properties: {
+         name: {
+            type: String,
+            value: "Pikachu",
+            reflectToAttribute: true,
+            readOnly: false,
+            notify: false
+         }
+      },
+      
+      // Métodos de instancia
+      sayHello: function(extra) {
+         //var elemento = this; => elemento.name
+         console.log('Hola ' + this.name + '... ' + extra);
+      },
+
+      sayBye: function() {
+         console.log("bye");
+      }
+   });
+   </script>
+</dom-module>

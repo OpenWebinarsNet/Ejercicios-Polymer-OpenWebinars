@@ -1,0 +1,53 @@
+<!-- Si colocamos la línea de abajo en el index.html
+     ya no haría falta ponerla en cada comnponente
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="my-first-behavior.html">
+<dom-module id="utiliza-behavior">
+   <template>
+      <style>
+      :host {
+         display: block;
+         text-align: center;
+         background-color: #BC1E30;
+         min-width: 300px;
+         max-width: 400px;
+         color: #fff;
+         margin: 15px;
+         margin: 0 auto;
+      }
+      </style>
+      <h2>Hello {{name}}</h2>
+   </template>
+   <script>
+   Polymer({
+      is: 'utiliza-behavior',
+
+      properties: {
+         name: {
+            type: String,
+            value: "Pikachu",
+            reflectToAttribute: true,
+            readOnly: false,
+            notify: false
+         }
+      },
+
+      created: function() {
+         console.log("normal created: mensaje");
+      },
+      
+      // Métodos de instancia
+      sayHello: function(extra) {
+         //var elemento = this; => elemento.name
+         console.log('Hola ' + this.name + '... ' + extra);
+      },
+
+      sayBye: function() {
+         console.log("bye");
+      },
+
+      behaviors: [MyFirstBehavior]
+   });
+   </script>
+</dom-module>

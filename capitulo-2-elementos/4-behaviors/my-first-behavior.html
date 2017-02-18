@@ -1,0 +1,29 @@
+<script>
+    MyFirstBehavior = {
+      properties: {
+        clickMessage:{
+          type: String,
+          value: "did you click?"
+        }
+      },
+
+      listeners: {
+        click: '_showClickMessage'
+      },
+
+      created: function() {
+        console.log('behavior created: Click message for ', this, 'enabled!');
+      },
+
+      _showClickMessage: function() {
+        alert("Hello " + this.name + " " + this.clickMessage);
+      }
+    };
+</script>
+
+<!--
+Se ejecutará primero el created del Behavior
+y luego el created normal del elemento
+
+Podremos hacer click sobre ele element
+-->

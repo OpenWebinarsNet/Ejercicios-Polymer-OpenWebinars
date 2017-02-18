@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="my-first-element.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <my-app></my-app>
+
+@element my-app
+-->
+
+<dom-module id="my-app">
+  <template>
+    <style>
+    .purple{
+      --my-bg-color: #2F36A9;
+
+      --my-byeP-rules:{
+        color: #00FF00;
+        text-align: right;
+        margin-right: 10px;
+        font-size: 16px;
+      };
+    }
+    </style>
+
+    <my-first-element name="Victor">
+      <p>Esto es LightDOM</p>
+      <p>Esto es LightDOM</p>
+      <p>Esto es LightDOM</p>
+      <p>Esto es LightDOM</p>
+      <p>Esto es LightDOM</p>
+    </my-first-element>
+
+    <my-first-element name="Vicent" class="purple">
+      <img src='../../img/avatar.jpg' />
+    </my-first-element>
+
+    <my-first-element name="Carlos">
+      <p>hola</p>
+    </my-first-element>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-app',
+    });
+  </script>
+</dom-module>

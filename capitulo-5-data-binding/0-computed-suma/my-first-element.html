@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="my-first-element">
+   <template>
+      numberA: <input value="{{numberA::input}}"><br>
+      numberB: <input value="{{numberB::input}}"><br>
+      Suma:  {{Longitud}}
+   </template>
+   <script>
+      Polymer({
+         is: 'my-first-element',
+         properties: {
+            numberA:{
+               type: Number
+            },
+
+            numberB:{
+               type: Number
+            },
+
+            Longitud:{
+               type: Number,
+               computed: 'suma(numberA, numberB)'
+            }
+         }, 
+         suma(a, b){
+             return parseInt(a)+parseInt(b)
+         }    
+      })
+
+   </script>
+
+</dom-module>

@@ -1,0 +1,9 @@
+<script>
+	// Ejecutado en navegador de escritorio
+	navigator.getBattery().then(function(battery) {
+	  console.log('Nivel de la batería: ', battery.level); // Nivel de la batería:  1
+	  battery.onlevelchange = function() {
+	    console.log(this.level); // No imprime
+	  };
+	});
+</script>

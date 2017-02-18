@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Examples</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="metodos-de-instancia.html">
+  </head>
+
+  <body>
+    <metodos-de-instancia name="Victor"></metodos-de-instancia>
+    <script>
+
+      // Instanciamos dos elementos
+      // y llamamos a los métodos de instancia
+      // Ver diferencia entre querySelector y createElement
+
+      // Selecciona el elemento creado en el HTML
+      var el1 = document.querySelector('metodos-de-instancia');
+      el1.sayHello("y hasta luego.");
+      el1.sayBye()
+
+      // Crea un nuevo elemento
+      var el2 = document.createElement('metodos-de-instancia');
+      el2.sayHello("y hasta luego.");
+      el2.sayBye();
+
+    </script>
+  </body>
+</html>
